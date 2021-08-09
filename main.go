@@ -1,20 +1,15 @@
 package main
 
 import (
-	 "github.com/gin-gonic/gin"
-	 "github.com/jinzhu/gorm"
-	 _ "github.com/jinzhu/gorm/dialects/mysql"
-	"gopractice/consts"
+	"github.com/gin-gonic/gin"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"gopractice/init"
 )
 
+func main() {
 
-func main()  {
 	r := gin.Default()
-	db ,err := gorm.Open(consts.MYSQL,consts.DSNDB1)
-	if err != nil {
-		panic(err.Error())
-	}
-	r.Run()
-	defer db.Close()
+	init.InitWeb(r)
+	defer r.Run()
 
 }
