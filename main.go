@@ -3,13 +3,17 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"gopractice/init"
 )
 
 func main() {
 
 	r := gin.Default()
-	init.InitWeb(r)
+	initService(r)
 	defer r.Run()
 
+}
+
+func initService(r *gin.Engine)  {
+	initWeb(r)
+	initDB()
 }
