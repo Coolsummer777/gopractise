@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"gopractice/biz/dal"
 )
 
 func main() {
@@ -13,7 +14,7 @@ func main() {
 
 }
 
-func initService(r *gin.Engine)  {
+func initService(r *gin.Engine) {
 	initWeb(r)
-	initDB()
+	dal.InitMysql()
 }

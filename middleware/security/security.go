@@ -2,6 +2,6 @@ package security
 
 import "gopractice/middleware"
 
-func Security(){
+func Security() {
 	middleware.Env()
 }
